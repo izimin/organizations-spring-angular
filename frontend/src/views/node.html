@@ -1,0 +1,10 @@
+<button class="{{data.isShow && data.children.length > 0
+                ? 'ExpandOpen Expand' : data.children.length > 0 ? 'ExpandClosed Expand'
+                : 'ExpandLeaf Expand'}}"
+        ng-click="isShowChildren(data)"></button>
+<span id="{{data.children.length > 0 ? 'rootWithChildren' : 'rootWithoutChildren' }}">
+    {{data.name}}
+</span>
+<ul ng-show="data.isShow">
+    <li ng-repeat="data in data.children"  ng-include="'./dist/node.html'"></li>
+</ul>

@@ -1,0 +1,32 @@
+<div class="middle">
+    <div align="center" id="upsert-box">
+        <form>
+            <h1 id="H1" ng-bind="title"></h1>
+            <table id="table-input" border="0">
+                <tr><td>Наименование сотрудника</td></tr>
+                <tr><td><input class="textField" type="text" ng-model="employeeForm.name"
+                               value="employeeForm.name"/></td></tr>
+                <tr><td>Наименование организации</td></tr>
+                <tr><td>
+                    <select ng-change="getDirectors()" id="repeatSelect" ng-model="employeeForm.idOrganization"
+                            ng-options="organization.id as organization.name for organization in listOrganizations">
+                        <option value=""></option>
+                    </select>
+                </td></tr>
+                <tr><td>Наименование руководителя</td></tr>
+                <tr><td>
+                    <select ng-change="getDirectors()" id="repeatSelect" ng-model="employeeForm.idDirector"
+                            ng-options="director.id as director.name for director in directors">
+                        <option value=""></option>
+                    </select>
+                </td></tr>
+                <tr>
+                    <td>
+                        <a ng-click="upsertEmployee()" href="#!/employees/list" id="upsert-button" ng-bind="btnText"></a>
+                        <a href="#!/employees/list"  id="upsert-button"> Отмена </a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

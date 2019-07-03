@@ -1,0 +1,404 @@
+/* Содержимое страницы */
+body {
+    width: 100%;
+    /*background-image: url(~../img/background.jpg);*/
+    background-color: #686868;
+    background-size: 100%;
+}
+
+/* Шапка с вкладками*/
+.header {
+    background-color: #1A1A1B;
+    height: 50px;
+    position: absolute;
+    width: 100%;
+}
+
+/* Панель с вкладками */
+#tab-pane {
+    padding: 15px 0;
+    font-size: 15px;
+    font-color: #FFFFFF;
+    text-align: center;
+}
+
+/* Стиль заголовка вкладки */
+.tab {
+    padding: 11px 10px 15px 10px;
+    color: #FFFFFF;
+}
+
+/* Действие при наведении мыши на имя вкладки */
+.tab:hover {
+    text-decoration: none;
+}
+
+/* Центральная часть страницы */
+.middle {
+    width: 100%;
+    position: absolute;
+    top: 120px;
+    bottom: 125px;
+    overflow: auto;
+}
+.homeImg{
+    position: absolute;
+    top: 80px;
+    margin: auto;
+    bottom: 90px;
+    width: 100%;
+}
+
+.img {
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+/* Низ страницы */
+.footer {
+    padding-top: 2em;
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding-bottom: 2em;
+    position: absolute;
+    bottom: 0;
+    width: 100%
+}
+
+/* Бокс под шапкой */
+.search-box {
+    background-color: #333;
+    color: white;
+    position: absolute;
+    top: 50px;
+    height: 60px;
+    width: 100%;
+}
+
+/* Поле ввода + кнопка */
+#search {
+    border: 1px;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #000000;
+    width: 95%;
+    height: 35px;
+    background-color: #FFFFFF;
+    position: relative;
+    top: 10px;
+    margin: auto;
+}
+
+/* Событие при наведении мыши на поле ввода*/
+#search:hover {
+    box-shadow: 0 0 3px #FFFFFF;
+}
+
+/* Поле ввода для поиска */
+#search-input {
+    border: 0;
+    font-size: 16px;
+    height: 25px;
+    width: 90%;
+    position: relative;
+    left: 15px;
+    margin-right: 10px;
+}
+
+/* Наведение мыши на поле ввода */
+#search-input:focus {
+    box-shadow: 0 0 0;
+}
+
+/* Кнопка "Найти" */
+#search-button {
+    background-color: #ffffff;
+    vertical-align: top;
+    border: 0;
+    position: relative;
+    right: 0;
+    width: 35px;
+    height: 35px;
+    background-image: url(~../img/search.png);
+    background-size: 100%;
+}
+
+/* Наведение мыши на кнопку "Найти" */
+#search-button:hover {
+    transform: scale(0.9);
+}
+
+/* Бокс для спискового представления */
+.list-box {
+    padding: 20px 40px;
+}
+
+/* Таблица для списков */
+#table {
+    border: 1px solid #000000;
+    background-color: white;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 3px #000000;
+}
+
+/* Стиль заголовков любых таблиц */
+th {
+    padding: 10px;
+    background-color: #E4E4E4;
+}
+
+/* Стиль для строк любых таблиц*/
+tr {
+    padding: 8px;
+}
+
+/* Стиль для столбцов любых таблиц*/
+td {
+    padding: 8px;
+}
+
+/* Стиль кнопок удалить/изменить */
+.button  {
+    cursor: pointer;
+    opacity: 0.5;
+    height: 20px;
+    width: 20px;
+}
+
+/* Наведение мыши на кнопки */
+.button:hover  {
+    opacity: 1;
+}
+
+/* Отображение подсказки */
+.button:hover::after{
+    content: attr(data-title);
+    position: absolute;
+    right: 25px;
+    z-index: 1;
+    background: rgba(255,255,230,0.9);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    padding: 5px 10px;
+    border: 1px solid #333;
+    margin-top: 20px;
+}
+
+/* Бокс для создания/изменения */
+#upsert-box {
+    background-color: #5F5F62;
+    border: 1px solid #000000;
+    box-shadow: 0 0 15px #000000;
+    width: 510px;
+    height: 350px;
+    padding: 20px 0;
+    margin: auto;
+}
+
+/* Таблица для ввода данных создания/изменения */
+#table-input{
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    color: #D6CDCD;
+}
+
+/* Стиль для заголовка первого уровня */
+#H1 {
+    color: #F9F9F9;
+    text-shadow: 0 0 4px #054B72;
+    margin-bottom: 10px;
+}
+
+/* Поле ввода данных */
+.textField {
+    font-size: 14pt;
+    width: 100%;
+    color: #D6CDCD;
+    background-color: #5F5F62;
+    border: 0;
+    border-bottom: 1px solid #7C7C80;
+    padding: 10px 3px;
+}
+
+.textField:hover {
+    box-shadow: 0 0 5px #ffffff;
+}
+
+#upsert-button {
+    text-decoration: none;
+    font-size: 14pt;
+    padding: 10px 50px 10px 50px;
+    width: 200px;
+    cursor: pointer;
+    color: #D6CDCD;
+}
+
+#upsert-button:hover {
+    background-color: #909094;
+    box-shadow: 0 0 5px #ffffff;
+    color: #000000;
+}
+
+#repeatSelect {
+    text-align: center;
+    font-size: 14pt;
+    width: 100%;
+    background-color: #5F5F62;
+    border: 0;
+    border-bottom: 1px solid #7C7C80;
+    height: 30px;
+    color: #D6CDCD;
+}
+
+#repeatSelect:hover {
+    box-shadow: 0 0 5px #ffffff;
+}
+
+.add-button{
+    font-size: 15px;
+    color: #FFFFFF;
+    box-shadow: 0 0 5px #000000;
+}
+
+.add-button:hover{
+    text-decoration: none;
+    color: #FFFFFF;
+    box-shadow: 0 0 5px #ffffff;
+}
+
+.addEmp {
+    padding: 7px 32px;
+}
+
+.addOrg {
+    padding: 7px;
+}
+
+#select-count-pages {
+    border: 0;
+    margin-top: 10px;
+    width: 55px;
+    color: #FFFFFF;
+    box-shadow: 0 0 5px #000000;
+    background-color: #616362;
+}
+
+#selectCount:hover {
+    box-shadow: 0 0 5px #ffffff;
+}
+
+.aPage{
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+.aPage:hover{
+    text-decoration: none;
+    color: #D5D5C7;
+}
+
+.aButton {
+    border: 1px;
+    padding: 5px;
+    box-shadow: 0 0 2px #000000;
+    margin: 3px;
+    width: 15px;
+}
+
+.aButton:hover {
+    box-shadow: 0 0 2px #FFFFFF;
+}
+
+.aButtonEnter {
+    background-color: #404140;
+}
+
+.simpleText {
+    color: #FFFFFF;
+}
+
+.aPages {
+    width: 145px;
+    text-align: right;
+}
+
+#spaceTd {
+    width: 200px;
+}
+
+#paging-box {
+    width: 100%;
+    position: absolute;
+    bottom: 53px;
+    overflow: auto;
+}
+
+#pages-bar {
+    border: 1px;
+    padding: 0 40px;
+}
+
+#paging-table {
+    width:  100%;
+}
+
+#button-number-page {
+    text-align: center;
+    width: 140px;
+}
+
+#tree {
+    color: #ffffff;
+    font-size: 20px;
+    margin: 10px 10px;
+}
+
+#rootWithChildren {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+#rootWithoutChildren {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+
+li {
+    list-style-type: none;
+}
+
+/* иконка скрытого/раскрытого поддерева или листа
+   сами иконки идут дальше, здесь общие свойства  */
+.Expand {
+    width: 20px;
+    height: 20px;
+    outline: none; /* Для синий ободки */
+    background: transparent;
+    border: 0;
+    background-size: 100%;
+}
+
+/* открытое поддерево */
+.ExpandOpen {
+    background-image: url(~../img/open.png);
+}
+
+/* закрытое поддерево */
+.ExpandClosed  {
+    background-image: url(~../img/close.png);
+
+}
+
+/* лист */
+.ExpandLeaf {
+    background-image: url(~../img/leaf.png);
+    cursor: auto;
+}

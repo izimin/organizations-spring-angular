@@ -1,0 +1,25 @@
+<div class="middle">
+    <div align="center" id="upsert-box">
+        <form>
+            <h1 id="H1" ng-bind="title"></h1>
+            <table id="table-input" border="0">
+                <tr><td>Наименование организации</td></tr>
+                <tr><td><input class="textField" type="text" ng-model="organizationForm.name"
+                               value="organizationForm.name"/></td></tr>
+                <tr><td>Наименование головной организации</td></tr>
+                <tr><td>
+                    <select id="repeatSelect" ng-model="organizationForm.idParent"
+                            ng-options="parentOrganization.id as parentOrganization.name for parentOrganization in parentOrganizations">
+                        <option value=""></option>
+                    </select>
+                </td></tr>
+                <tr>
+                    <td>
+                        <a ng-click="upsertOrganization()" href="#!/organizations/list" id="upsert-button" ng-bind="btnText"></a>
+                        <a href="#!/organizations/list"  id="upsert-button"> Отмена </a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

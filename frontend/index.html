@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app='OrganizationManager'>
+<head>
+    <meta charset="utf-8">
+    <title ng-bind="title"></title>
+</head>
+<body  ng-controller="HomeCtrl">
+<header class="header">
+    <div>
+        <nav id="tab-pane">
+            <a class="tab" href="#!/" >ГЛАВНАЯ</a>
+            <a class="tab" href="#!/organizations/list" >СПИСОК ОРГАНИЗАЦИЙ</a>
+            <a class="tab" href="#!/employees/list" >СПИСОК СОТРУДНИКОВ</a>
+            <a class="tab" href="#!/organizations/tree" >ДЕРЕВО ОРГАНИЗАЦИЙ</a>
+            <a class="tab" href="#!/employees/tree" >ДЕРЕВО СОТРУДНИКОВ</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container"></div>
+
+<!-- templates -->
+<ng-view></ng-view>
+
+<footer class="footer">
+    <div class="container"></div>
+</footer>
+
+<script src="dist/bundle.js"></script>
+
+</body>
+</html>

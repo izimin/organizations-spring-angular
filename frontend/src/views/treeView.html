@@ -1,0 +1,29 @@
+<div class="search-box"></div>
+<div class="middle">
+    <div id="tree">
+        <div ng-repeat="data in tree" ng-include="'./dist/node.html'"></div>
+    </div>
+</div>
+
+<div id="paging-box">
+    <div id="pages-bar">
+        <div>
+            <table id="paging-table">
+                <tr>
+                    <td>
+                        <a class="add-button addEmp" href="" ng-click="expandTree()" ng-bind="btnText"></a>
+                    </td>
+                    <td align="right">
+                        <div>
+                            <span class="simpleText">Макс. дочерних элементов на странице:</span>
+                            <input type="number" min="0"
+                                   ng-model="limit"
+                                   ng-change="refresh()"
+                                   id="select-count-pages">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
