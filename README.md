@@ -3,6 +3,7 @@
 # Как запустить:
 
 $ git clone https://github.com/Zimins/myTestTask.git
+
 $ cd myTestTask.git
 
 # БД
@@ -56,41 +57,45 @@ create unique index employees_name_uindex
 Подставить свои настройки конфигурации:
 
 spring.datasource.url=<Ваш url>
+
 spring.datasource.username=<Ваш username>
+
 spring.datasource.password=<Ваш password>
+
 
 # Front-end
 
 Поместить файл index.html (\myTestTask.git\frontend\index.html) в один каталог с каталогом dist (\myTestTask.git\frontend\dist) 
+
 Или оставить как есть.
 
 # Nginx
 
 В файле nginx.conf в http прописать следующее
 
-server {
-      listen 80 default_server;
-      server_name localhost;
+      server {
+          listen 80 default_server;
+          server_name localhost;
+          location / {
+              root html;
+              index <Путь к index.html>;
+          }
 
-      location / {
-          root html;
-          index <Путь к index.html>;
+          location ^~ /employees {
+              proxy_pass http://127.0.0.1:8080;
+              expires -1;
+              proxy_set_header Host $host;
+              proxy_set_header X-Real-IP $remote_addr;
+          }
+
+          location ^~ /organizations {
+              proxy_pass http://127.0.0.1:8080;
+              expires -1;
+              proxy_set_header Host $host;
+              proxy_set_header X-Real-IP $remote_addr;
+          }
       }
 
-      location ^~ /employees {
-          proxy_pass http://127.0.0.1:8080;
-          expires -1;
-          proxy_set_header Host $host;
-          proxy_set_header X-Real-IP $remote_addr;
-      }
-
-      location ^~ /organizations {
-          proxy_pass http://127.0.0.1:8080;
-          expires -1;
-          proxy_set_header Host $host;
-          proxy_set_header X-Real-IP $remote_addr;
-      }
-}
 
 # Запустить сервер backend (Application)
 
