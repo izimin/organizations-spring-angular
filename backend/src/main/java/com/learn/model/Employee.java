@@ -1,10 +1,17 @@
-package com.learn;
+package com.learn.model;
+
+import java.util.List;
 
 public class Employee {
+
     private Integer id;
     private String name;
     private Integer idOrganization;
     private Integer idDirector;
+
+    private String nameDirector;
+    private String nameOrganization;
+    private List<Employee> children;
 
     public Employee() {
     }
@@ -14,6 +21,9 @@ public class Employee {
         this.name = name;
         this.idOrganization = idOrganization;
         this.idDirector = idDirector;
+        this.nameDirector = null;
+        this.nameOrganization = null;
+        this.children = null;
     }
 
     public Integer getId() {
@@ -46,5 +56,31 @@ public class Employee {
 
     public void setIdDirector(Integer idDirector) {
         this.idDirector = idDirector;
+    }
+
+
+
+    public String getNameDirector() {
+        return nameDirector;
+    }
+
+    public void setNameDirector(String nameDirector) {
+        this.nameDirector = nameDirector;
+    }
+
+    public String getNameOrganization() {
+        return nameOrganization;
+    }
+
+    public void setNameOrganization(String nameOrganization) {
+        this.nameOrganization = nameOrganization;
+    }
+
+    public List<Employee> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Employee> children) {
+        this.children = children;
     }
 }

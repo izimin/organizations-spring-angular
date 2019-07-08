@@ -111,7 +111,7 @@ module.exports = function(ngModule){
                 }
             }).then(
                 function(res) { // success
-                    $scope.countPages = Math.ceil(res.data.countOrg / $scope.limit);
+                    $scope.countPages = Math.ceil(Number(res.data) / $scope.limit);
                     let begin = $scope.curPage === $scope.countPages ? ($scope.curPage > 5  ?  $scope.curPage - 4 : 1) :
                         $scope.curPage === $scope.countPages - 1 ? ($scope.curPage > 4 ? $scope.curPage - 3 : 1) :
                             $scope.curPage > 2 ? $scope.curPage - 2 : 1;
