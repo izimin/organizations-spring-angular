@@ -1,0 +1,41 @@
+<div id="paging-box">
+        <div id="pages-bar">
+                <div>
+                        <table id="paging-table">
+                                 <tr>
+                                        <td>
+                                               <a class="add-button {{obj == 'employee' ? 'addEmp' :'addOrg' }}" href="#!{{url}}" >{{btnText}}</a>
+                                            </td>
+                                        <td class="aPages">
+                                               <nav>
+                                                       <a class="aPage" ng-click="changeNumPage(1)" ng-show="curPage != 1"> Первая</a>
+                                                       <a class="aPage" ng-click="changeNumPage(curPage == 1 ? 1 : curPage-1)" ng-show="curPage != 1">Предыдущая</a>
+                                                   </nav>
+                                            </td>
+                                        <td id="button-number-page">
+                                               <a ng-repeat="i in pages"
+                                                   ng-click="changeNumPage(i)"
+                                                   class="{{i == curPage ? 'aPage aButton aButtonEnter' : 'aPage aButton' }}"
+                                                   ng-bind="i"> </a>
+                                            </td>
+                                        <td class="aPages">
+                                               <nav>
+                                                       <a class="aPage" ng-click="changeNumPage(curPage == countPages ? countPages : curPage+1)" ng-show="curPage != countPages && countPages != 0">Следующая</a>
+                                                       <a class="aPage" ng-click="changeNumPage(countPages)" ng-show="curPage != countPages && countPages != 0">Последняя</a>
+                                                   </nav>
+                                            </td>
+                                        <td align="right">
+                                               <div>
+                                                       <span class="simpleText">Элементов на странице:</span>
+                                                       <select name="mySelect" id="select-count-pages"
+                                                         ng-options="option for option in [5, 10, 15, 20, 50, 100]"
+                                                         ng-model="limit"
+                                                         ng-change="refresh()"
+                                                       </select>
+                                               </div>
+                                        </td>
+                                 </tr>
+                        </table>
+                 </div>
+        </div>
+</div>

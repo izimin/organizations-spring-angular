@@ -1,0 +1,112 @@
+/* Бокс для спискового представления */
+.list-box {
+    padding: 20px 40px;
+}
+
+/* Таблица для списков */
+#table {
+    border: 1px solid #000000;
+    background-color: white;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 3px #000000;
+}
+
+/* Стиль кнопок удалить/изменить */
+.button  {
+    cursor: pointer;
+    opacity: 0.5;
+    height: 20px;
+    width: 20px;
+}
+
+/* Наведение мыши на кнопки */
+.button:hover  {
+    opacity: 1;
+}
+
+/* Отображение подсказки */
+.button:hover::after{
+    content: attr(data-title);
+    position: absolute;
+    right: 25px;
+    z-index: 1;
+    background: rgba(255,255,230,0.9);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    padding: 5px 10px;
+    border: 1px solid #333;
+    margin-top: 20px;
+}
+
+.add-button{
+    font-size: 15px;
+    color: #FFFFFF;
+    box-shadow: 0 0 5px #000000;
+}
+
+.add-button:hover{
+    text-decoration: none;
+    color: #FFFFFF;
+    box-shadow: 0 0 5px #ffffff;
+}
+
+.addEmp {
+    padding: 7px 32px;
+}
+
+.addOrg {
+    padding: 7px;
+}
+
+#select-count-pages {
+    border: 0;
+    margin-top: 10px;
+    width: 55px;
+    color: #FFFFFF;
+    box-shadow: 0 0 5px #000000;
+    background-color: #616362;
+}
+
+
+#selectCount:hover {
+    box-shadow: 0 0 5px #ffffff;
+}
+
+.aPage{
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+.aPage:hover{
+    text-decoration: none;
+    color: #D5D5C7;
+}
+
+.aButton {
+    border: 1px;
+    padding: 5px;
+    box-shadow: 0 0 2px #000000;
+    margin: 3px;
+    width: 15px;
+}
+
+.aButton:hover {
+    box-shadow: 0 0 2px #FFFFFF;
+}
+
+.aButtonEnter {
+    background-color: #404140;
+}
+
+.simpleText {
+    color: #FFFFFF;
+}
+
+.aPages {
+    width: 145px;
+    text-align: right;
+}

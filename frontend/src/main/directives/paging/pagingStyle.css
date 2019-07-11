@@ -1,0 +1,20 @@
+#paging-box {
+    width: 100%;
+    position: absolute;
+    bottom: 53px;
+    overflow: auto;
+}
+
+#pages-bar {
+    border: 1px;
+    padding: 0 40px;
+}
+
+#paging-table {
+    width:  100%;
+}
+
+#button-number-page {
+    text-align: center;
+    width: 140px;
+}

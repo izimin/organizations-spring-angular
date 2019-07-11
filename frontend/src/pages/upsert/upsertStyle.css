@@ -1,0 +1,55 @@
+/* Бокс для создания/изменения */
+#upsert-box {
+    background-color: #5F5F62;
+    border: 1px solid #000000;
+    box-shadow: 0 0 15px #000000;
+    width: 510px;
+    height: 350px;
+    padding: 20px 0;
+    margin: auto;
+}
+
+/* Таблица для ввода данных создания/изменения */
+#table-input{
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    color: #D6CDCD;
+}
+
+/* Стиль для заголовка первого уровня */
+#H1 {
+    color: #F9F9F9;
+    text-shadow: 0 0 4px #054B72;
+    margin-bottom: 10px;
+}
+
+/* Поле ввода данных */
+.textField {
+    font-size: 14pt;
+    width: 100%;
+    color: #D6CDCD;
+    background-color: #5F5F62;
+    border: 0;
+    border-bottom: 1px solid #7C7C80;
+    padding: 10px 3px;
+}
+
+.textField:hover {
+    box-shadow: 0 0 5px #ffffff;
+}
+
+#upsert-button {
+    text-decoration: none;
+    font-size: 14pt;
+    padding: 10px 50px 10px 50px;
+    width: 200px;
+    cursor: pointer;
+    color: #D6CDCD;
+}
+
+#upsert-button:hover {
+    background-color: #909094;
+    box-shadow: 0 0 5px #ffffff;
+    color: #000000;
+}

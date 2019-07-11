@@ -1,15 +1,17 @@
 module.exports = function(ngModule) {
-    ngModule.controller('TreeViewCtrl', ['$scope', '$rootScope', '$http', '$location', function($scope, $rootScope, $http, $location) {
+    ngModule.controller('TreeViewCtrl', ['$scope', '$rootScope', '$http', '$location', '$window', '$routeParams', 'commonService',
+        function($scope, $rootScope, $http, $location, $window, $routeParams, commonService) {
          let url = '';
          let isExpand = false;
-         if ($location.path() === "/employees/tree") {
+         if ($routeParams.objects === "employees") {
              $rootScope.title = "Дерево сотрудников";
-             url = 'http://localhost/employees/tree';
+             url = '/employees/tree';
          }
-         else {
+         else if ($routeParams.objects === "organizations")  {
              $rootScope.title = "Дерево организаций";
-             url = 'http://localhost/organizations/tree';
+             url = '/organizations/tree';
          }
+         else $window.location.href = '/';
 
          $scope.tree = [];
 
@@ -21,20 +23,11 @@ module.exports = function(ngModule) {
          let limitPrev = 5;
 
          // Запрос изначального дерева с дефолтным количеством потомков
-         $http.get(url, {
-             params: {
-                 limit: $scope.limit,
-                 offset: 0
-             }
-         }).then(
-             function(res) { // success
+         commonService.getTree(url, $scope.limit, 0)
+         .then(function(res) {
                  $scope.tree = res.data;
                  _setIsShow($scope.tree, isExpand);
-             },
-             function(res) { // error
-                 console.log("Error: " + res.status + " : " + res.data);
-             }
-         );
+         });
 
          $scope.refresh = function () {
              if ($scope.limit !== null) {
@@ -50,6 +43,7 @@ module.exports = function(ngModule) {
              }
          };
 
+         // Обрезаем дочерние элементы, если текущий лимит ниже предыдущего
          function _cutChildren(child) {
              child.length = $scope.limit;
              for (let ch of child){
@@ -58,27 +52,18 @@ module.exports = function(ngModule) {
              }
          }
 
-
+         // Подгрузка дочерних элементов 
          function _addChildren() {
              let lp = limitPrev;
-             $http.get(url, {
-                 params: {
-                     limit: $scope.limit-lp,
-                     offset: lp
-                 }
-             }).then(
-                 function(res) { // success
+             commonService.getTree(url, $scope.limit-lp, lp)
+             .then(function(res) { 
                      for (let i = 0; i < $scope.tree.length; i++) {
                          if ($scope.tree[i].children.length === lp) {
                              _addCh($scope.tree[i], res.data[i]);
                              _setIsShow(res.data[i], isExpand);
                          }
                      }
-                 },
-                 function(res) { // error
-                     console.log("Error: " + res.status + " : " + res.data);
-                 }
-             );
+             });
          }
 
          function _addCh(tree, data) {

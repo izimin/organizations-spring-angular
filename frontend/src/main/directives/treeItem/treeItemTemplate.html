@@ -6,5 +6,5 @@
     {{data.name}}
 </span>
 <ul ng-show="data.isShow">
-    <li ng-repeat="data in data.children"  ng-include="'./dist/node.html'"></li>
+    <li ng-repeat="data in data.children"><tree-item></tree-item></li>
 </ul>

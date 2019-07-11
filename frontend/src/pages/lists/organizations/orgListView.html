@@ -1,0 +1,49 @@
+<search-directive placeholder="Наименование организации"></search-directive>
+
+<div class="middle">
+	<div class="list-box">
+		<div>
+		    <table id="table" border="1">
+
+		        <!-- Шапка таблицы -->
+				<tr>
+		            <th>Идентификатор организации</th>
+		            <th>Наименование организации</th>
+		            <th>Идентификатор родительской организации</th>
+		            <th>Наименование родительской организации</th>
+		            <th>Количество сотрудников в организации</th>
+		        </tr>
+
+		        <!-- $scope.organizations -->
+		        <tr ng-repeat="organization in organizations">
+					<td ng-bind="organization.id"></td>
+					<td ng-bind="organization.name"></td>
+					<td ng-bind=" organization.idParent"></td>
+					<td ng-bind="organization.nameParent"></td>
+					<td ng-bind="organization.countEmp"></td>
+
+					<!-- Кнопка изменения -->
+					<td>
+						<a href="#!/organization/update"
+						   class="edit-button button"
+						   data-title="Редактировать"
+						   ng-click="editOrganization(organization)">
+							<img width="20" height="20" src="./dist/img/edit.png" alt="Изменить"/>
+						</a>
+					</td>
+
+					<!-- Кнопка удаления -->
+					<td>
+						<a class="delete-button button"
+						   data-title="Удалить"
+						   ng-click="deleteOrganization(organization)">
+							<img width="20" height="20" src="./dist/img/delete.png" alt="Удалить"/>
+						</a>
+					</td>
+		        </tr>
+		    </table>
+		</div>
+	</div>
+</div>
+
+<paging-directive btn-text="Создать новую организацию" url="/organization/create" obj="organization"></paging-directive>

@@ -1,66 +1,47 @@
 module.exports = function(ngModule) {
-    ngModule.controller('UpsertEmpCtrl', ['$scope', '$rootScope','$http', '$location', function($scope, $rootScope, $http, $location) {
+    ngModule.controller('UpsertEmpCtrl', ['$window','$scope', '$rootScope', '$http', '$location', '$routeParams', 'empService',
+        function($window, $scope, $rootScope, $http, $location, $routeParams, empService) {
         let method = "";
         let config = { params: {}};
 
-        if ($location.path() === "/employee/create") {
+        if ($routeParams.action === "create") {
             $rootScope.title = "Добавление сотрудника";
             $rootScope.btnText = "Добавить";
             method = "POST";
         }
-        else {
+        else if ($routeParams.action === "update"){
             $rootScope.title = "Изменение сотрудника";
             $rootScope.btnText = "Изменить";
             method = "PUT";
             config.params.id = $rootScope.employeeForm.id;
         }
+        else $window.location.href = '/';
 
         $scope.directors = [{id: null, name: "" }];
         $scope.listOrganizations = [];
 
         // Запрос списка организаций
-        $http.get('http://localhost/organizations/parents', {
-            headers: {
-                'Content-Type':'text/json'
-            }
-        }).then(
-            function(res) { // success
+        empService.getOrgList()
+            .then(function(res) {
                 $scope.listOrganizations = res.data;
                 $scope.getDirectors();
-            },
-            function(res) { // error
-                console.log("Error: " + res.status + " : " + res.data);
             });
 
         // Запрос сотрудников на роль диркктора
         $scope.getDirectors = function() {
             config.params.idOrganization = $rootScope.employeeForm.idOrganization;
 
-            $http.get('http://localhost/employees/directors', config)
-                .then(
-                    function (res) { // success
+            empService.getDirectors(config)
+                .then(function (res) {
                         $scope.directors = res.data;
-                    },
-                    function (res) { // error
-                        console.log("Error: " + res.status + " : " + res.data);
                     });
         };
 
         // Функция вызывается при нажатии на кнопку добавить/изменить
         $scope.upsertEmployee = function() {
-            $http({
-                method: method,
-                url: 'http://localhost/employees/list',
-                data: angular.toJson($rootScope.employeeForm),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(
-                function(res) { // success
+            empService.upsert(method, $scope.employeeForm)
+                .then(function(res) {
                     $rootScope.$emit("refreshListEmp", {});
-                },
-                function(res) { // error
-                    console.log("Error: " + res.status + " : " + res.data);
                 });
         };
     }]);

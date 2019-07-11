@@ -1,0 +1,42 @@
+#rootWithChildren {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+#rootWithoutChildren {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+
+li {
+    list-style-type: none;
+}
+
+/* иконка скрытого/раскрытого поддерева или листа
+   сами иконки идут дальше, здесь общие свойства  */
+.Expand {
+    width: 20px;
+    height: 20px;
+    outline: none; /* Для синий ободки */
+    background: transparent;
+    border: 0;
+    background-size: 100%;
+}
+
+/* открытое поддерево */
+.ExpandOpen {
+    background-image: url(~../../../img/open.png);
+}
+
+/* закрытое поддерево */
+.ExpandClosed  {
+    background-image: url(~../../../img/close.png);
+
+}
+
+/* лист */
+.ExpandLeaf {
+    background-image: url(~../../../img/leaf.png);
+    cursor: auto;
+}

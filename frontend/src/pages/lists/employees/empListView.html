@@ -1,0 +1,47 @@
+<search-directive placeholder="Наименование сотрудника или организации"></search-directive>
+
+<div class="middle">
+    <div class="list-box">
+        <div>
+            <table id="table" border="1">
+                <tr>
+                    <th>Идентификатор сотрудника</th>
+                    <th>Наименование сотрудника</th>
+                    <th>Идентификатор руководителя</th>
+                    <th>Наименование руководителя</th>
+                    <th>Идентификатор организации</th>
+                    <th>Наименование организации</th>
+                </tr>
+
+                <!-- $scope.employees -->
+                <tr ng-repeat="employee in employees">
+                    <td ng-bind="employee.id"></td>
+                    <td ng-bind="employee.name"></td>
+                    <td ng-bind="employee.idDirector"></td>
+                    <td ng-bind="employee.nameDirector"></td>
+                    <td ng-bind="employee.idOrganization"></td>
+                    <td ng-bind="employee.nameOrganization"></td>
+                    <td >
+                        <div >
+                            <a href="#!/employee/update"
+                               class="edit-button button"
+                               data-title="Редактировать"
+                               ng-click="editEmployee(employee)">
+                                <img width="20" height="20" src="./dist/img/edit.png" alt="Радактировать"/>
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <a class="delete-button button"
+                           data-title="Удалить"
+                           ng-click="deleteEmployee(employee)">
+                            <img width="20" height="20" src="./dist/img/delete.png" alt="Удалить"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<paging-directive btn-text="Добавить сотрудника" url="/employee/create" obj="employee"></paging-directive>

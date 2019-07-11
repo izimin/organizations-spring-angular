@@ -1,0 +1,60 @@
+.search-box {
+    background-color: #333;
+    color: white;
+    position: absolute;
+    top: 50px;
+    height: 60px;
+    width: 100%;
+}
+
+/* Поле ввода + кнопка */
+#search {
+    border: 1px;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #000000;
+    width: 95%;
+    height: 35px;
+    background-color: #FFFFFF;
+    position: relative;
+    top: 10px;
+    margin: auto;
+}
+
+/* Событие при наведении мыши на поле ввода*/
+#search:hover {
+    box-shadow: 0 0 3px #FFFFFF;
+}
+
+/* Поле ввода для поиска */
+#search-input {
+    border: 0;
+    font-size: 16px;
+    height: 25px;
+    width: 90%;
+    position: relative;
+    left: 15px;
+    margin-right: 10px;
+}
+
+/* Наведение мыши на поле ввода */
+#search-input:focus {
+    box-shadow: 0 0 0;
+}
+
+/* Кнопка "Найти" */
+#search-button {
+    background-color: #ffffff;
+    vertical-align: top;
+    border: 0;
+    position: relative;
+    right: 0;
+    width: 35px;
+    height: 35px;
+    background-image: url(~../../../img/search.png);
+    background-size: 100%;
+}
+
+/* Наведение мыши на кнопку "Найти" */
+#search-button:hover {
+    transform: scale(0.9);
+}
